@@ -26,7 +26,7 @@ class UsersRequest extends Request
         return [
             //
             'name'=>'required',
-            'email'=>'required|email',
+            'email'=>'required|email|unique:users',
             'password'=>'required|min:3',
             'role_id'=>'required',
             'is_active'=>'required'
