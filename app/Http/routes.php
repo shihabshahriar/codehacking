@@ -13,6 +13,8 @@
 
 //use Illuminate\Routing\Route;
 
+//use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,5 +30,13 @@ Route::get('/admin', function (){
 });
 
 
+Route::group(['middleware'=>'admin'], function(){
 
-Route::resource('admin/users', 'AdminUsersController');
+    Route::resource('admin/users', 'AdminUsersController');
+
+    Route::resource('admin/posts', 'AdminPostsController');
+
+});
+
+//Route::resource('admin/users', 'AdminUsersController');
+
